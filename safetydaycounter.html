@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 32px; /* Increased font size for the title */
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            max-width: 80px; /* Adjust the size of the logo */
+        }
+
+        .locations {
+            padding: 20px;
+            margin-top: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .location {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 24px;
+            color: #27ae60; /* Green color for days without injury */
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .back-button,
+        .request-change-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px; /* Adjust margin for spacing */
+            display: inline-block;
+            text-decoration: none; /* Remove default link styling */
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateDayCounter(location, startDate) {
+                const currentDate = new Date();
+                const startTime = startDate.getTime();
+                const currentTime = currentDate.getTime();
+                const millisecondsPerDay = 24 * 60 * 60 * 1000;
+                const days = Math.floor((currentTime - startTime) / millisecondsPerDay);
+                
+                document.getElementById(`${location}-counter`).innerText = days;
+            }
+            
+            // Set the start dates for each location
+            const fortMillStartDate = new Date('2023-11-15'); // Replace with actual start date
+            const fourOaksStartDate = new Date('2023-08-18'); // Replace with actual start date
+            const spartanRidgeStartDate = new Date('2023-03-01'); // Replace with actual start date
+
+            // Update day counters
+            updateDayCounter('fortMill', fortMillStartDate);
+            updateDayCounter('fourOaks', fourOaksStartDate);
+            updateDayCounter('spartanRidge', spartanRidgeStartDate);
+        });
+
+        function navigateToIndex() {
+            window.location.href = "index.html";
+        }
+
+        function navigateToGitHub() {
+            window.location.href = "https://forms.office.com/r/k4Pe0nTyPv";
+        }
+    </script>
+</head>
+<body>
+
+    <img class="logo" src="/images/brrlogo.png" alt="BRR Logo">
+
+    <div class="sticky-header">
+        Day Counter All Facilities
+    </div>
+
+    <div class="locations">
+        <div class="location">
+            <h2>Fort Mill</h2>
+            <p>Days Without Injury: <span id="fortMill-counter"></span></p>
+        </div>
+
+        <div class="location">
+            <h2>Four Oaks</h2>
+            <p>Days Without Injury: <span id="fourOaks-counter"></span></p>
+        </div>
+
+        <div class="location">
+            <h2>Spartan Ridge</h2>
+            <p>Days Without Injury: <span id="spartanRidge-counter"></span></p>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <button class="back-button" onclick="navigateToIndex()">Back to Index</button>
+        <a href="https://forms.office.com/r/k4Pe0nTyPv" class="request-change-button">Request Change</a>
+    </div>
+
+</body>
+</html>

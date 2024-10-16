@@ -7,7 +7,7 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #e0f7fa; /* Light cyan background */
             color: #333;
         }
 
@@ -15,13 +15,13 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: #333;
+            background: linear-gradient(to right, #007bff, #00bcd4); /* Gradient background */
             color: #fff;
             padding: 15px;
             text-align: center;
             font-size: 32px; /* Increased font size for the title */
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
@@ -33,7 +33,7 @@
 
         .locations {
             padding: 20px;
-            margin-top: 60px;
+            margin-top: 70px; /* Adjusted for sticky header */
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -42,26 +42,34 @@
         .location {
             width: 100%;
             max-width: 400px;
-            background-color: #fff;
+            background-color: #ffffff;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+        }
+
+        .location:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
-            color: #333;
+            color: #007bff; /* Blue color for headings */
             margin-bottom: 10px;
+            text-align: center;
         }
 
         p {
             margin: 0;
-            font-size: 18px;
+            font-size: 20px; /* Increased font size */
+            text-align: center;
         }
 
         span {
             font-weight: bold;
-            font-size: 24px;
+            font-size: 30px; /* Increased font size for days */
             color: #27ae60; /* Green color for days without injury */
         }
 
@@ -73,7 +81,7 @@
 
         .back-button,
         .request-change-button {
-            background-color: #3498db;
+            background-color: #3498db; /* Button color */
             color: #fff;
             padding: 15px 30px;
             border: none;
@@ -84,6 +92,30 @@
             display: inline-block;
             text-decoration: none;
             text-align: center;
+            transition: background-color 0.3s; /* Smooth transition for hover */
+        }
+
+        .back-button:hover,
+        .request-change-button:hover {
+            background-color: #2980b9; /* Darker shade on hover */
+        }
+
+        @media (max-width: 600px) {
+            .location {
+                width: 90%; /* Make locations take up more width on small screens */
+            }
+
+            h2 {
+                font-size: 24px; /* Responsive font size for headings */
+            }
+
+            p {
+                font-size: 18px; /* Responsive font size for paragraphs */
+            }
+
+            span {
+                font-size: 28px; /* Responsive font size for days */
+            }
         }
     </style>
     <script>
@@ -143,7 +175,7 @@
     </div>
 
     <div class="buttons-container">
-        <button class="back-button" onclick="navigateToIndex()">Back to Index</button>
+        <button class="back-button" onclick="navigateToIndex()">Home</button> <!-- Changed button text to Home -->
         <a href="https://forms.office.com/r/k4Pe0nTyPv" class="request-change-button">Request Change</a>
     </div>
 

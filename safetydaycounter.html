@@ -127,22 +127,24 @@
         document.addEventListener('DOMContentLoaded', function () {
             function updateDayCounter(location, startDate) {
                 const currentTime = Date.now(); // Get the current time in milliseconds
-                const startTime = startDate.getTime(); // Get the start time in milliseconds
+                const startTime = new Date(startDate).getTime(); // Get the start time in milliseconds
                 const millisecondsPerDay = 24 * 60 * 60 * 1000;
                 const days = Math.floor((currentTime - startTime) / millisecondsPerDay);
                 
                 document.getElementById(`${location}-counter`).innerText = days;
             }
             
-            // Set the start dates for each location
-            const fortMillStartDate = new Date(2023, 10, 15); // November 15, 2023 (Month is 0-based)
-            const fourOaksStartDate = new Date(2023, 7, 22);  // August 22, 2023
-            const spartanRidgeStartDate = new Date(2023, 10, 27); // November 27, 2023
-
-            // Update day counters
-            updateDayCounter('fortMill', fortMillStartDate);
-            updateDayCounter('fourOaks', fourOaksStartDate);
-            updateDayCounter('spartanRidge', spartanRidgeStartDate);
+            // Fetch start dates from JSON file
+            fetch('start_dates.json')
+                .then(response => response.json())
+                .then(data => {
+                    for (const location in data) {
+                        updateDayCounter(location, data[location]);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching start dates:', error);
+                });
         });
 
         function navigateToIndex() {
@@ -180,7 +182,7 @@
     </div>
 
     <div class="buttons-container">
-        <button class="home-button" onclick="navigateToIndex()">Home</button> <!-- Updated button text -->
+        <button class="home-button" onclick="navigateToIndex()">Home</button>
         <a href="https://forms.office.com/r/k4Pe0nTyPv" class="request-change-button">Request Change</a>
     </div>
 

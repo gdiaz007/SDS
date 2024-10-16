@@ -136,7 +136,6 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <!-- Removed the fourth slide indicator -->
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -174,7 +173,7 @@
     <!-- Main content -->
     <div class="container mt-5">
         <div class="jumbotron text-center">
-            <h1 class="display-4 fancy-heading">Hello, Memory Maker!</h1> <!-- Fancy font applied -->
+            <h1 class="display-4 fancy-heading">Hello, Memory Maker!</h1>
             <p class="lead">Welcome to the new Material Safety Data Sheet collection for Mohawk Products.</p>
             <p>To use this tool, type the Product ID (e.g., M-101-0001) into the search field. Upon clicking search, your MSDS sheet will populate on your device or laptop.</p>
             <p>This tool was created by Ashley’s Loss Prevention & Safety Team, proud to be Memory Makers!</p>
@@ -200,7 +199,7 @@
 
         function searchFile() {
             var fileName = document.getElementById('txtName').value;
-            window.location.href = fileName + '.pdf';
+            window.location.href = 'SDS/sdspdf/' + fileName + '.pdf'; // Updated to include full path
         }
     </script>
 

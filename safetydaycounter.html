@@ -82,17 +82,15 @@
             font-size: 16px;
             margin: 10px; /* Adjust margin for spacing */
             display: inline-block;
-            text-decoration: none; /* Remove default link styling */
-            text-align: center;
             text-decoration: none;
+            text-align: center;
         }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             function updateDayCounter(location, startDate) {
-                const currentDate = new Date();
-                const startTime = startDate.getTime();
-                const currentTime = currentDate.getTime();
+                const currentTime = Date.now(); // Get the current time in milliseconds
+                const startTime = startDate.getTime(); // Get the start time in milliseconds
                 const millisecondsPerDay = 24 * 60 * 60 * 1000;
                 const days = Math.floor((currentTime - startTime) / millisecondsPerDay);
                 
@@ -100,9 +98,9 @@
             }
             
             // Set the start dates for each location
-            const fortMillStartDate = new Date('2023-11-15'); // Replace with actual start date
-            const fourOaksStartDate = new Date('2023-08-22'); // Replace with actual start date
-            const spartanRidgeStartDate = new Date('2023-11-27'); // Replace with actual start date
+            const fortMillStartDate = new Date(2023, 10, 15); // November 15, 2023 (Month is 0-based)
+            const fourOaksStartDate = new Date(2023, 7, 22);  // August 22, 2023
+            const spartanRidgeStartDate = new Date(2023, 10, 27); // November 27, 2023
 
             // Update day counters
             updateDayCounter('fortMill', fortMillStartDate);

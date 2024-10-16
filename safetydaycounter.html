@@ -7,7 +7,7 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #e0f7fa; /* Light cyan background */
+            background-color: #eaf4fc; /* Light blue background */
             color: #333;
         }
 
@@ -15,13 +15,14 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: linear-gradient(to right, #007bff, #00bcd4); /* Gradient background */
+            background-color: #007bff; /* Blue header */
             color: #fff;
             padding: 15px;
             text-align: center;
             font-size: 32px; /* Increased font size for the title */
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Ensure it stays on top */
         }
 
         .logo {
@@ -33,43 +34,44 @@
 
         .locations {
             padding: 20px;
-            margin-top: 70px; /* Adjusted for sticky header */
+            margin-top: 80px; /* Adjusted for sticky header */
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
         }
 
         .location {
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
             background-color: #ffffff;
-            border-radius: 8px;
+            border-radius: 15px;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+            margin: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
         }
 
         .location:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px); /* Hover effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
             color: #007bff; /* Blue color for headings */
             margin-bottom: 10px;
             text-align: center;
+            font-family: 'Georgia', serif; /* Stylish font for headings */
         }
 
         p {
             margin: 0;
-            font-size: 20px; /* Increased font size */
-            text-align: center;
+            font-size: 18px;
+            text-align: center; /* Center text */
         }
 
         span {
             font-weight: bold;
-            font-size: 30px; /* Increased font size for days */
+            font-size: 24px;
             color: #27ae60; /* Green color for days without injury */
         }
 
@@ -79,42 +81,43 @@
             margin-top: 20px;
         }
 
-        .back-button,
+        .home-button,
         .request-change-button {
-            background-color: #3498db; /* Button color */
+            background-color: #ff9f00; /* Orange color for buttons */
             color: #fff;
             padding: 15px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
             margin: 10px; /* Adjust margin for spacing */
             display: inline-block;
             text-decoration: none;
             text-align: center;
-            transition: background-color 0.3s; /* Smooth transition for hover */
+            transition: background-color 0.3s;
         }
 
-        .back-button:hover,
+        .home-button:hover,
         .request-change-button:hover {
-            background-color: #2980b9; /* Darker shade on hover */
+            background-color: #d68900; /* Darker orange on hover */
         }
 
+        /* Responsive styles */
         @media (max-width: 600px) {
             .location {
-                width: 90%; /* Make locations take up more width on small screens */
+                width: 90%; /* Full width on mobile */
+            }
+
+            .sticky-header {
+                font-size: 24px; /* Smaller font size on mobile */
             }
 
             h2 {
-                font-size: 24px; /* Responsive font size for headings */
+                font-size: 20px; /* Adjust heading size for mobile */
             }
 
             p {
-                font-size: 18px; /* Responsive font size for paragraphs */
-            }
-
-            span {
-                font-size: 28px; /* Responsive font size for days */
+                font-size: 16px; /* Adjust paragraph size for mobile */
             }
         }
     </style>
@@ -175,7 +178,7 @@
     </div>
 
     <div class="buttons-container">
-        <button class="back-button" onclick="navigateToIndex()">Home</button> <!-- Changed button text to Home -->
+        <button class="home-button" onclick="navigateToIndex()">Home</button> <!-- Updated button text -->
         <a href="https://forms.office.com/r/k4Pe0nTyPv" class="request-change-button">Request Change</a>
     </div>
 

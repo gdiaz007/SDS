@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRRSDS</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
         }
 
+        /* Navbar styling */
         .navbar {
-            background: linear-gradient(90deg, #3498db, #2ecc71);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #007bff;
         }
 
         .navbar .nav-link {
@@ -23,83 +24,42 @@
             font-weight: bold;
         }
 
-        .navbar .nav-link:hover {
-            color: #ecf0f1 !important;
-        }
-
-        .carousel-caption h4 {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        .carousel-caption p {
-            font-size: 1.25rem;
-        }
-
-        .carousel-indicators li {
-            background-color: #2ecc71;
-        }
-
-        .jumbotron {
-            background-color: #ffffff;
-            padding: 2rem 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .jumbotron h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .jumbotron .lead {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .jumbotron .btn-primary {
-            background-color: #2ecc71;
-            border-color: #27ae60;
-            padding: 15px 30px;
-            font-size: 1.25rem;
-        }
-
-        /* Style for input and buttons */
+        /* Input and button styling */
         #txtName {
             padding: 10px;
+            margin-right: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            margin-right: 10px;
-            width: 250px;
         }
 
         .btn {
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
+            margin-right: 10px;
         }
 
+        /* Carousel styling */
         .carousel-item img {
-            max-height: 600px;
+            max-height: 500px;
             object-fit: cover;
+            width: 100%;
         }
 
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: #2ecc71;
+        /* Jumbotron styling */
+        .jumbotron {
+            background-color: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* Footer styling */
         footer {
-            background-color: #2c3e50;
+            background-color: #343a40;
             color: white;
             padding: 1rem 0;
             text-align: center;
-            margin-top: 2rem;
         }
 
         footer a {
-            color: #2ecc71;
+            color: #007bff;
             text-decoration: none;
         }
 
@@ -112,10 +72,10 @@
 <body>
 
     <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <input type="text" id="txtName" placeholder="Ex: M101-0001" aria-label="Search">
-        <button class="btn btn-primary btn-lg" type="submit" onclick="location.href='https://www.mohawk-finishing.com/mhk_cds/product_msds/' + document.getElementById('txtName').value + '.pdf'">Online</button>
-        <button class="btn btn-primary btn-lg" type="submit" onclick="searchFile()">Offline</button>
+    <nav class="navbar navbar-expand-lg">
+        <input type="text" id="txtName" placeholder="Ex: M101-0001">
+        <button class="btn btn-primary" type="button" onclick="searchOnline()">Online</button>
+        <button class="btn btn-primary" type="button" onclick="searchFile()">Offline</button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -125,12 +85,10 @@
                     <a class="nav-link" href="safetydaycounter.html">Safety Day Counter</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="infoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Info </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="infoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</a>
                     <div class="dropdown-menu" aria-labelledby="infoDropdown">
-                        <a class="dropdown-item" href="https://www.youtube.com/watch?v=6E946qsLZ0Y">What is an SDS?</a>
-                        <a class="dropdown-item" href="https://www.youtube.com/watch?v=flzEe7RxJYA">How to read an SDS</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">What to do in an emergency?</a>
+                        <a class="dropdown-item" href="https://www.youtube.com/watch?v=6E946qsLZ0Y">What is a SDS?</a>
+                        <a class="dropdown-item" href="https://www.youtube.com/watch?v=flzEe7RxJYA">How to read a SDS</a>
                     </div>
                 </li>
             </ul>
@@ -138,32 +96,32 @@
     </nav>
 
     <!-- Carousel -->
-    <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel" style="margin-top: 20px;">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block mx-auto img-fluid" src="images/PreventIncidents2.jpg" alt="First slide">
-                <div class="carousel-caption">
-                    <h4>We Believe In Keeping You Safe</h4>
+                <img src="images/PreventIncidents2.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>We Believe In Keeping You Safe</h5>
                     <p>Every employee has the right to know what chemicals they handle.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block mx-auto img-fluid" src="images/SprayCan2.jpg" alt="Second slide">
+                <img src="images/SprayCan2.jpg" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block mx-auto img-fluid" src="images/NotFound.jpg" alt="Third slide">
+                <img src="images/NotFound.jpg" alt="Third slide">
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
@@ -171,16 +129,12 @@
 
     <!-- Main content -->
     <div class="container mt-5">
-        <div class="jumbotron">
+        <div class="jumbotron text-center">
             <h1 class="display-4">Hello, Memory Maker!</h1>
             <p class="lead">Welcome to the new Material Safety Data Sheet collection for Mohawk Products.</p>
-            <p class="lead">To use this tool, please type the Product ID (e.g., M-101-0001) into the search field. Upon clicking search, your MSDS sheet will populate on your device or laptop.</p>
-            <p class="lead">This tool was created by Ashley’s Loss Prevention &amp; Safety Team, Proud to be Memory Makers, Proud to be team players!</p>
-            <hr class="my-4">
-            <p>Search non-Mohawk SDS Feature coming soon!</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf" role="button">HAZCOM</a>
-            </p>
+            <p>To use this tool, type the Product ID (e.g., M-101-0001) into the search field. Upon clicking search, your MSDS sheet will populate on your device or laptop.</p>
+            <p>This tool was created by Ashley’s Loss Prevention & Safety Team, proud to be Memory Makers!</p>
+            <a class="btn btn-primary btn-lg" href="https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf" role="button">HAZCOM</a>
         </div>
     </div>
 
@@ -190,16 +144,21 @@
         <p><a href="https://www.osha.gov">Visit OSHA</a></p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <script type="text/javascript">
+        function searchOnline() {
+            var fileName = document.getElementById('txtName').value;
+            window.location.href = 'https://www.mohawk-finishing.com/mhk_cds/product_msds/' + fileName + '.pdf';
+        }
+
         function searchFile() {
             var fileName = document.getElementById('txtName').value;
             window.location.href = "sdspdf/" + fileName + ".pdf";
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

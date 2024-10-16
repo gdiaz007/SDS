@@ -136,7 +136,12 @@
             
             // Fetch start dates from JSON file
             fetch('start_dates.json')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     for (const location in data) {
                         updateDayCounter(location, data[location]);

@@ -8,6 +8,8 @@
     <title>BRRSDS</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts for fancy font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -34,6 +36,23 @@
 
         .btn {
             margin-right: 10px;
+        }
+
+        /* Matching Safety Day Counter button with navbar */
+        .btn-secondary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Fancy font for Hello, Memory Maker! */
+        .fancy-heading {
+            font-family: 'Pacifico', cursive;
         }
 
         /* Carousel styling */
@@ -76,7 +95,7 @@
         <input type="text" id="txtName" placeholder="Ex: M101-0001">
         <button class="btn btn-primary" type="button" onclick="searchOnline()">Online</button>
         <button class="btn btn-primary" type="button" onclick="searchFile()">Offline</button>
-        <a class="btn btn-secondary" href="safetydaycounter.html">Safety Day Counter</a> <!-- Moved outside collapse -->
+        <a class="btn btn-secondary" href="safetydaycounter.html">Safety Day Counter</a> <!-- Updated to match blue bar -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -128,7 +147,7 @@
     <!-- Main content -->
     <div class="container mt-5">
         <div class="jumbotron text-center">
-            <h1 class="display-4">Hello, Memory Maker!</h1>
+            <h1 class="display-4 fancy-heading">Hello, Memory Maker!</h1> <!-- Fancy font applied -->
             <p class="lead">Welcome to the new Material Safety Data Sheet collection for Mohawk Products.</p>
             <p>To use this tool, type the Product ID (e.g., M-101-0001) into the search field. Upon clicking search, your MSDS sheet will populate on your device or laptop.</p>
             <p>This tool was created by Ashley’s Loss Prevention & Safety Team, proud to be Memory Makers!</p>
